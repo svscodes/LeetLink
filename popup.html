@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>LeetLink Settings</title>
+  <style>
+    /* LeetCode Dark Mode Theme Variables */
+    :root {
+      --lc-bg-main: #1a1a1a;
+      /* Main dark background */
+      --lc-bg-layer: #282828;
+      /* Input fields/Cards */
+      --lc-border: #3e3e3e;
+      /* Border color */
+      --lc-text-primary: #eff1f6;
+      /* Main white text */
+      --lc-text-secondary: #9ca3af;
+      /* Gray helper text */
+      --lc-green: #2cbb5d;
+      /* "Submit" button green */
+      --lc-green-hover: #26a351;
+      --lc-orange: #ffa116;
+      /* LeetCode Orange */
+      --lc-red: #f63636;
+      /* Error color */
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      width: 360px;
+      padding: 24px;
+      font-family: var(--font-stack);
+      background-color: var(--lc-bg-main);
+      color: var(--lc-text-primary);
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    /* --- Header Section --- */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      gap: 10px;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--lc-text-primary);
+    }
+
+    .logo-icon {
+      width: 24px;
+      height: 24px;
+      /* Use CSS mask to make the icon orange or white */
+      color: var(--lc-orange);
+    }
+
+    /* --- Form Elements --- */
+    .input-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 13px;
+      color: var(--lc-text-secondary);
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      background-color: var(--lc-bg-layer);
+      border: 1px solid var(--lc-border);
+      border-radius: 6px;
+      font-size: 14px;
+      color: var(--lc-text-primary);
+      box-sizing: border-box;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+      /* Code font for inputs looks techy */
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      border-color: var(--lc-orange);
+      /* LeetCode orange focus */
+      box-shadow: 0 0 0 2px rgba(255, 161, 22, 0.2);
+    }
+
+    input::placeholder {
+      color: #5c5c5c;
+    }
+
+    /* --- Helper Text --- */
+    .help-text {
+      font-size: 11px;
+      color: var(--lc-text-secondary);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* --- Checkbox --- */
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .checkbox-group input {
+      margin-right: 10px;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--lc-green);
+      /* Makes the checkbox green when checked */
+      cursor: pointer;
+    }
+
+    .checkbox-group span {
+      font-size: 14px;
+      color: var(--lc-text-primary);
+    }
+
+    /* --- Buttons --- */
+    button#saveBtn {
+      width: 100%;
+      padding: 10px;
+      background-color: var(--lc-green);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.2s;
+      font-family: var(--font-stack);
+    }
+
+    button#saveBtn:hover {
+      background-color: var(--lc-green-hover);
+    }
+
+    /* --- Status Messages --- */
+    .status {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 13px;
+      display: none;
+    }
+
+    .status.success {
+      background: rgba(44, 187, 93, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(44, 187, 93, 0.3);
+    }
+
+    .status.error {
+      background: rgba(246, 54, 54, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(246, 54, 54, 0.3);
+    }
+
+    /* --- Divider & Footer --- */
+    .divider {
+      height: 1px;
+      background: var(--lc-border);
+      margin: 20px 0;
+    }
+
+    .footer-info {
+      font-size: 12px;
+      color: var(--lc-text-secondary);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* Optional: Profile image placeholder style */
+    #userAvatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--lc-border);
+      margin-bottom: 8px;
+      display: none;
+      /* Hidden until JS loads it */
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="profileSection" style="text-align: center; display: none; margin-bottom: 20px;">
+    <img id="userAvatar" src="" alt="Profile">
+    <div id="userName" style="font-weight: 600; color: var(--lc-text-primary);"></div>
+  </div>
+
+  <div class="header">
+    <svg class="logo-icon" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.04.17 0 .36.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.04-.22 0-.41-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+    </svg>
+    <h2>LeetLink Settings</h2>
+  </div>
+
+  <div class="input-group">
+    <label for="githubToken">GitHub Personal Access Token</label>
+    <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxx">
+    <div class="help-text">
+      Generate at: GitHub Settings → Developer Settings
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="repoName">Repository Name</label>
+    <input type="text" id="repoName" placeholder="username/leetcode-solutions">
+    <div class="help-text">
+      Format: username/repository-name
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="branch">Branch</label>
+    <input type="text" id="branch" placeholder="main" value="main">
+  </div>
+
+  <label class="checkbox-group">
+    <input type="checkbox" id="autoPush">
+    <span>Auto-push on "Accepted" ✨</span>
+  </label>
+
+  <button id="saveBtn">Save Settings</button>
+
+  <div id="status" class="status"></div>
+
+  <div class="divider"></div>
+
+  <div class="footer-info">
+    <span>🎯 Go to a problem and click "Push to GitHub"</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
