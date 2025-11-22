@@ -68,3 +68,28 @@ LeetLink/
 ├── popup.html         # Extension settings UI
 ├── popup.js           # Saves user preferences to Chrome Storage
 └── icons/             # App icons
+```
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+<div align="center">
+  <h3>👤 Built by S Vyaas Sundar</h3>
+  <p>If you found this project helpful, let's connect!</p>
+  
+  <br />
+
+  <a href="https://www.linkedin.com/in/vyaas-sundar-s/">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Connect on LinkedIn" />
+  </a>
+
+  &nbsp;&nbsp;&nbsp;&nbsp; <a href="https://github.com/svscodes">
+    <img src="https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white" alt="Follow on GitHub" />
+  </a>
+  
+  <br />
+  <br />
+</div>
